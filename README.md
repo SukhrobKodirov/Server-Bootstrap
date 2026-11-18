@@ -18,3 +18,7 @@ Safe to run more than once.
 |---|---|
 | 10-packages.sh | Updates the system, installs base tools|
 | 20-swap.sh | Creates a swap file |
+
+## Notes
+
+- After the SSH step, only the admin user can log in. On Multipass test VMs this also blocks 'multipass shell', 'exac' and 'transfer', which use the ubuntu account. Copy the project in before the first run.

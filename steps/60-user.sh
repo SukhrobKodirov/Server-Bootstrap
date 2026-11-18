@@ -3,7 +3,7 @@
 
 # Safety: refuse to continue with a missing or example key,
 # because the SSH step would then lock everyone out.
-if [[ "$ADMIN_SSH_KEY" != ssh=-* || "$ADMIN_SSH_KEY" == *replace* ]]; then
+if [[ "$ADMIN_SSH_KEY" != ssh-* || "$ADMIN_SSH_KEY" == *replace* ]]; then
 	log "ADMIN_SSH_KEY in config.env is not a real public key. Stopping."
 	exit 1
 fi
@@ -17,7 +17,7 @@ fi
 usermod -aG sudo "$ADMIN_USER"
 
 home="/home/$ADMIN_USER"
-installed -d -m 700 -o "$ADMIN_USER" -g "$ADMIN_USER" "$home/.ssh"
+install -d -m 700 -o "$ADMIN_USER" -g "$ADMIN_USER" "$home/.ssh"
 keyfile="$home/.ssh/authorized_keys"
 touch "$keyfile"
 grep -qxF "$ADMIN_SSH_KEY" "$keyfile" || echo "$ADMIN_SSH_KEY" >> "$keyfile"
