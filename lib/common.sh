@@ -28,7 +28,7 @@ prompt_config() {
 	SWAP_SIZE="${SWAP_SIZE:-2G}"
 
 	read -rp "Tailscale hostname [$(hostname)]: " TAILSCALE_HOSTNAME
-	TAILSCALE_HOSTNAME="${TAILSCALE_HOSTNAME;-$(hostname)}"
+	TAILSCALE_HOSTNAME="${TAILSCALE_HOSTNAME:-$(hostname)}"
 
 	{
 		printf 'ADMIN_USER=%q\n' "$ADMIN_USER"
