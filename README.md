@@ -1,4 +1,4 @@
-#server-bootstrap
+# server-bootstrap
 
 One script that turns a fresh Ubuntu 24.04 server into a hardened base
 
